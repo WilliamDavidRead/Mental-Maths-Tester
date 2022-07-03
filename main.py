@@ -12,7 +12,6 @@ import math
 
 groundtruth = 0
 userans = 0
-qnum = 0
 score = 0
 
 def answerer():
