@@ -5,8 +5,13 @@ Planned for inclusion are:
 
 Gui (probably tkinter, nothing too fancy)
 
-Points/Accuracy tracker
+Add ratings ("Excellent", "Good", "Keep Trying!", etc) based upon performance?
 
 Replace number of questions input with time limit from pre-set choice
 
 Dividing questions into pools of easy/medium/hard with difficulty option
+
+
+Done:
+
+Points tracking
