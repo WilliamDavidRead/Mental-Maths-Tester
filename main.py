@@ -1,18 +1,51 @@
 import random
 import math
-# import tkinter as tk
-# from tkinter import simpledialog
-# root = tk.Tk()
-# greeting = tk.Label(text="Hello, Tkinter")
-# root.mainloop()
-# def sqrtint(bigint):
-#    userans = int(input('What integer is closest to the square root of', bigint))
-#    if userans == bigint:
-#        print('True!')
+import time
+
+
+from tkinter import *
+from tkinter import messagebox
+root = Tk()
+root.geometry('600x400')
+root.title('Maths Tester')
+minute = StringVar()
+second = StringVar()
+minute.set("00")
+second.set("00")
+minuteEntry = Entry(root, width=3, font=("Arial",18,""),
+                   textvariable=minute)
+minuteEntry.place(x=130, y=20)
+
+secondEntry = Entry(root, width=3, font=("Arial", 18, ""),
+                    textvariable=second)
+secondEntry.place(x=180, y=20)
+
+
+def submit():
+    try:
+        temp = int(minute.get()) * 60 + int(second.get())
+    except:
+        print("Please input the right value")
+    while temp > -1:
+        mins, secs = divmod(temp, 60)
+        if mins > 60:
+            hours, mins = divmod(mins, 60)
+        minute.set("{0:2d}".format(mins))
+        second.set("{0:2d}".format(secs))
+        root.update()
+        time.sleep(1)
+        if (temp == 0):
+            messagebox.showinfo("Time Countdown", "Time's up ")
+        temp -= 1
+btn = Button(root, text='Set Time Countdown', bd='5',
+             command=submit)
+btn.place(x=70, y=120)
+root.mainloop()
 
 groundtruth = 0
 userans = 0
 score = 0
+
 
 def answerer():
     if userans == groundtruth:
@@ -31,6 +64,7 @@ def myadder():
     print("What is", int1, '+', int2, '?')
     global userans
     userans = int(input())
+
 
 def mymultiple():
     int1 = random.randint(1, 100)
@@ -92,4 +126,3 @@ try:
     print('You scored', score, 'out of', qnum)
 except:
     pass
-
